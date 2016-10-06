@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/FEND16/fend16.github.io/issues"
   },
-  "homepage": "https://github.com/FEND16/fend16.github.io#readme"
+  "homepage": "https://github.com/FEND16/fend16.github.io#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.5.0",
+    "browser-sync": "^2.16.0",
+    "cssnano": "^3.7.5",
+    "gulp": "^3.9.1",
+    "gulp-minify": "0.0.14",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2"
+  }
 }
