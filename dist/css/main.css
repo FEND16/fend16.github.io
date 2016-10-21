@@ -66,8 +66,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  height: 200px; }
+  align-items: center; }
   .repoList span {
     display: inline-block;
     padding: 5px 0 5px 0; }
