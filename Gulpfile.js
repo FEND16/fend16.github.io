@@ -34,6 +34,10 @@ gulp.task('sass', () => {
 gulp.task('babel', () => {
 	return gulp.src('./src/js/main.js')
 		.pipe(babel())
+		.on('error', function(e) {
+      		console.log('>>> ERROR', e);
+      		this.emit('end');
+    	})
 		.pipe(gulp.dest('./dist/js'))
 		.pipe(browserSync.stream());
 });

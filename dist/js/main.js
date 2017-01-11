@@ -2,14 +2,14 @@
 
 /*jshint esversion: 6 */
 
-// AJAX Call for repos
-// $.ajax({
-// 	method: 'GET',
-// 	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed',
-// 	dataType: 'JSON',
-// 	success: function(result){
-// 		appendRepos(sortRepos(result));
-// 	}});
+//AJAX Call for repos
+$.ajax({
+	method: 'GET',
+	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed',
+	dataType: 'JSON',
+	success: function success(result) {
+		appendRepos(sortRepos(result));
+	} });
 
 var orderByDate = function orderByDate(arr, dateProp) {
 	return arr.slice().sort(function (a, b) {

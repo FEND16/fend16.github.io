@@ -1,13 +1,13 @@
 /*jshint esversion: 6 */
 
-// AJAX Call for repos
-// $.ajax({
-// 	method: 'GET',
-// 	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed',
-// 	dataType: 'JSON',
-// 	success: function(result){
-// 		appendRepos(sortRepos(result));
-// 	}});
+//AJAX Call for repos
+$.ajax({
+	method: 'GET',
+	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed',
+	dataType: 'JSON',
+	success: (result) => {
+		appendRepos(sortRepos(result));
+	}});
 
 const orderByDate = (arr, dateProp) => {
   return arr.slice().sort((a, b) => {
