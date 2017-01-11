@@ -1,0 +1,14 @@
+@mixin font-settings(){
+	-text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+@mixin flex($dir: column, $justify: flex-start, $align: flex-start){
+	display: flex;
+	flex-direction: $dir;
+	justify-content: $justify;
+	align-items: $align;
+}
