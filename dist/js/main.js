@@ -1,12 +1,11 @@
 'use strict';
 
 /*jshint esversion: 6 */
-var TOKEN = 'f7326de422e386e552172886079eede88e9ffa5c';
 
 // AJAX Call for repos
 $.ajax({
 	method: 'GET',
-	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed&access_token=' + TOKEN,
+	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed',
 	dataType: 'JSON',
 	success: function success(result) {
 		appendRepos(sortRepos(result));
@@ -41,21 +40,3 @@ var appendRepos = function appendRepos(repos) {
 	});
 	$('.repoList').append(htmlChunk);
 };
-
-// var appendMembers = function(data){
-// 	let htmlChunk = '';
-// 	data.map((user) =>{
-// 		htmlChunk += `<li><img class='memberImg' src=${user.avatar_url} class='memberImg'/><a href='${user.html_url}'>${user.login}</a>`;
-// 	});
-
-// 	$('.memberList').append(htmlChunk);
-// };
-
-// AJAX Call for members of organization
-// $.ajax({
-// 	method: 'GET',
-// 	url: 'https://api.github.com/orgs/FEND16/members?access_token=658e516551ef662a2c110c9e51d69c8277fdc1a4',
-// 	dataType: 'JSON',
-// 	success: function(result){
-// 		appendMembers(result);
-// 	}});
