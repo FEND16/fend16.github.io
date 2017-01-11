@@ -3,20 +3,26 @@
 @import 'mixins';
 @import 'variables';
 
+$main-color: hsl(10, 20%, 30%);
+$purple: rgba(174,129,255,1);
+
+
+$padd: 3rem;
+
 body,
 html{
 	width: 100%;
 	background: #fff;
-	color: $main-dark;
-	font: 100%/2 "Consolas", "Monaco", monospace;
+	color: $main-color;
+	font: 100%/2 "Lato", sans-serif;
 	@include font-settings;
 }
 
 
 a{
-	color: $main-dark;
+	color: $main-color;
 	&:visited{
-		color: $main-dark;
+		color: $main-color;
 	}
 	&:hover{
 		color: $purple;
@@ -25,20 +31,27 @@ a{
 
 .container{
 	@include flex(column, center, center);
-	box-shadow: 5px 5px 0 hsl(150, 80%, 90%);
 	background-color: hsl(10, 80%, 90%);
 	padding: $padd;
+}
+
+.repo-link{
+	text-align: left;
+	p{
+		font-size: 0.8rem;
+		color: lighten($main-color, 20%);
+	}
 }
 
 @media screen and (min-width: 50rem){
 	.container{
 		width: 60%;
 		margin: 0 auto;
-		@include flex(row, space-around, center);
+		@include flex(row, space-around);
 		flex-wrap: wrap;
 		section{
 			flex: 1;
-			@include flex(column, flex-start, center);
+			@include flex(column);
 		}
 	}
 }

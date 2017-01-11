@@ -3,14 +3,13 @@
 /*jshint esversion: 6 */
 
 // AJAX Call for repos
-$.ajax({
-	method: 'GET',
-	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed',
-	dataType: 'JSON',
-	success: function success(result) {
-		console.log(sortRepos(result));
-		return sortRepos(result);
-	} });
+// $.ajax({
+// 	method: 'GET',
+// 	url: 'https://api.github.com/orgs/FEND16/repos?sort=pushed',
+// 	dataType: 'JSON',
+// 	success: function(result){
+// 		appendRepos(sortRepos(result));
+// 	}});
 
 var orderByDate = function orderByDate(arr, dateProp) {
 	return arr.slice().sort(function (a, b) {
@@ -29,4 +28,10 @@ var sortRepos = function sortRepos(data) {
 	return orderByDate(repos, 'updated');
 };
 
-var appendRepos = function appendRepos(data) {};
+var appendRepos = function appendRepos(repos) {
+	var htmlChunk = '';
+	repos.map(function (repo) {
+		htmlChunk += '<div class="repo-link">\n\t\t\t\t\t\t\t<a href="' + repo.link + '"> ' + repo.name + '</a>\n\t\t\t\t\t\t\t<p>' + repo.updated.toLocaleString() + '</p>\n\t\t\t\t\t\t</div>';
+	});
+	$('.repos').append(htmlChunk);
+};
