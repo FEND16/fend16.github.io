@@ -4,20 +4,20 @@
 @import 'variables';
 
 $main-color: hsl(10, 20%, 30%);
-$purple: rgba(174,129,255,1);
+$purple: #fcfc;
+$bg: hsl(10, 80%, 90%);
 
 
-$padd: 3rem;
+$padd: 2rem;
 
 body,
 html{
 	width: 100%;
-	background: #fff;
+	background-color: $bg;
 	color: $main-color;
-	font: 100%/2 "Lato", sans-serif;
+	font: 120%/1.5 "Lato", sans-serif;
 	@include font-settings;
 }
-
 
 a{
 	color: $main-color;
@@ -25,33 +25,65 @@ a{
 		color: $main-color;
 	}
 	&:hover{
-		color: $purple;
+		color: lighten($main-color, 20%);
 	}
 }
 
 .container{
 	@include flex(column, center, center);
-	background-color: hsl(10, 80%, 90%);
-	padding: $padd;
+	background-color: $bg;
 }
 
-.repo-link{
-	text-align: left;
-	p{
-		font-size: 0.8rem;
-		color: lighten($main-color, 20%);
+.box, .linklist{
+	flex: 1;
+	width: 100%;
+}
+.box{
+	padding: 0 $padd $padd $padd;
+	margin-bottom: 2rem;
+}
+
+.linklist{
+	@include flex(column, space-around);
+	flex-wrap: wrap;
+	margin-bottom: $padd;
+	a{
+		padding: ($padd/2);
 	}
 }
 
-@media screen and (min-width: 50rem){
-	.container{
-		width: 60%;
-		margin: 0 auto;
-		@include flex(row, space-around);
-		flex-wrap: wrap;
-		section{
-			flex: 1;
-			@include flex(column);
+h1, h2, h3, h4{
+	border-bottom: 1px solid hsl(10, 100%, 10%);
+	padding-bottom: 0.5rem;
+}
+
+.footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #333;
+	@include flex(row, center, center);
+	a{
+		color: #fff;
+		padding: 2rem;
+		transition: color 1s ease;
+		&:hover{
+			color: #999;
 		}
 	}
+}
+
+@media screen and (min-width: 57.5em){
+	.container{
+		width: 70%;
+		margin: 0 auto;
+		@include flex(column, space-around);
+		
+	}
+	.linklist{
+		@include flex(row);
+	}
+
 }
